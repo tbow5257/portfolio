@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import Gradient from '../components/Gradient'
+import Carousel from '../components/Carousel'
 
 import Icon from '../assets/noun.png'
 import Email from '../assets/social/email.png'
@@ -44,9 +45,14 @@ padding-top: 1em;
 `;
 
 const ProjectsContainer = styled.div`
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
 
 h1 {
-font-size: 3.5em
+font-size: 3.5em;
+margin: 5px;
 }
 
 img {
@@ -73,8 +79,7 @@ const IndexPage = () => (
                 </div>
             </Header>
             <ProjectsContainer>
-                <h1>jQuery, PHP</h1>
-                <img src={Placeholder} />
+                <Carousel/>
             </ProjectsContainer>
             <Footer>
                 <img src={Email}/>
