@@ -39,7 +39,6 @@ padding-top: 1em;
     
     p {
     color: white;
-    mix-blend-mode: difference;
     text-align: center;
     }
 `;

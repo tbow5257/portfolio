@@ -1,9 +1,11 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Slider from 'react-slick'
 import styled from 'styled-components'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
+import Typewriter from '../Typewriter'
 
 const Container = styled.div`
 padding: 0 40px;
@@ -230,35 +232,85 @@ h3 {
 
 `;
 
+function SampleNextArrow(props) {
+    const {className, style, onClick} = props
+    return (
+        <div
+            className='slick-arrow slick-next'
+            onClick={onClick}
+        />
+    );
+}
+
+
+let handleNavClick = (event) => {
+    console.log('click')
+};
+
+
 class Carousel extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
-            caption: 0
+            caption: 0,
+            typeAnimation: false
         };
+        this.toggleAnimation = this.toggleAnimation.bind(this);
     };
+
+    toggleAnimation() {
+        console.log('anim toggle');
+        this.setState((prevState, props) => {
+            const typeAnimation = !prevState.typeAnimation;
+            return { typeAnimation }
+        })
+    }
+
+    // telling Typewriter to restart when new Carousel nav clicked
+    // componentDidMount() {
+    //     this.nav.addEventListener("slick-arrow", this.handleNavClick)
+    // }
+    //
+    // componentWillUnmount() {
+    //     this.nav.removeEventListener("slick-arrow", this.handleNavClick)
+    // }
+
+    handleNavClick = (event) => {
+        slickNext();
+    };
+
 
     render(props, state) {
         var settings = {
             dots: false,
             beforeChange: (oldIndex, newIndex) => {
-                if (!newIndex) { this.setState({ Caption: oldIndex })}
-                else { this.setState({Caption: newIndex})}}
+                this.setState({Caption: newIndex});
+                    this.toggleAnimation();
+                console.log('sherbert');
+            },
+            afterChange: (index) => {this.setState({typeAnimation: true});
+                this.toggleAnimation();},
+            nextArrow: <SampleNextArrow/>,
         };
+
 
         const captions = {
             undefined: 'jQuery, PHP',
-            1: 'hi i am 1'
+            0: 'jQuery, PHP',
+            1: 'hi i am 1',
+            2: 'hi i am 2',
+            3: 'hi i am 3',
         }
 
-        console.log(this.state.Caption);
+        console.log(this.state.typeAnimation);
         return (
             <Container>
-                <h1>{captions[this.state.Caption]}</h1>
+                <Typewriter typeAnimation={this.state.typeAnimation} ref={instance => { this.child = instance;}}>
+                    {captions[this.state.Caption]}
+                </Typewriter>
                 <Slider {...settings}>
                     <div>
-                        <img src="http://placekitten.com/g/400/200" />
+                        <img  src="http://placekitten.com/g/400/200" />
                     </div>
                     <div>
                         <img src="http://placekitten.com/g/400/200" />
