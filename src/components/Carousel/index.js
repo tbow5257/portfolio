@@ -1,19 +1,43 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Slider from 'react-slick'
 import styled from 'styled-components'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { media } from '../../layouts'
+
 
 import Typewriter from '../Typewriter'
 
+import PTA from '../../assets/placeholder.jpg'
+
 const Container = styled.div`
+  ${media.tablet`
+  .slick-track { height: 260px !important }
+  img { height: 260px !important }
+  `}
+
+  ${media.desktop`
+
+  .slick-next { right: -39px }
+  .slick-prev { left: -61px}
+  `}
+
 padding: 0 40px;
 width: 80%;
 position: relative;
 z-index: 999;
 justify-items: center;
 align-items: center;
+
+img {
+object-fit: cover;
+}
+
+h1 {
+margin: 0;
+padding: 5px;
+
+}
 
 h3 {
   background: blue;
@@ -103,11 +127,7 @@ h3 {
   height: 180px;
 }
 .slick-arrow {
-  background-color: grey;
   /* color: black; */
-}
-.slick-arrow:hover {
-  background-color: grey;
 }
 
 /* Slider */
@@ -228,7 +248,9 @@ h3 {
     display: none;
 }
 
-
+.slick-prev:before, .slick-next:before {
+  font-size: 34px;
+}
 
 `;
 
@@ -310,7 +332,7 @@ class Carousel extends React.Component {
                 </Typewriter>
                 <Slider {...settings}>
                     <div>
-                        <img  src="http://placekitten.com/g/400/200" />
+                        <img  src={PTA} />
                     </div>
                     <div>
                         <img src="http://placekitten.com/g/400/200" />

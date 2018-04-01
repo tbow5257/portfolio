@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import Gradient from '../components/Gradient'
 import Carousel from '../components/Carousel'
+import { media } from '../layouts'
+
 
 import Icon from '../assets/noun.png'
 import Email from '../assets/social/email.png'
@@ -60,8 +62,11 @@ height: 50vh;
 `;
 
 const Footer = styled.div`
+    
+    
     img {
     height: 35px;
+    margin: 15px 35px;
     }
 `;
 
@@ -84,7 +89,6 @@ const IndexPage = () => (
                 <img src={Email}/>
                 <img src={Github}/>
                 <img src={Twitter}/>
-
             </Footer>
         </Container>
     </div>

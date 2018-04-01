@@ -1,17 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { media } from '../../layouts'
 
 const TypingBox = styled.div`
+
+
+
 h1 {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
+  
+  ${media.tablet`font-size: 2.5em !important`}
+  
+  
   ${props => props.isAnimate ? 
     'animation: typing .7s steps(30, end), blink-caret .8s step-end infinite;'
     : 'animation: blink-caret .8s step-end infinite'}
 }
+
+
 
 /* The typing effect */
 @keyframes typing {
