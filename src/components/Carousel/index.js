@@ -9,7 +9,11 @@ import { media } from '../../layouts'
 
 import Typewriter from '../Typewriter'
 
-import PTA from '../../assets/placeholder.jpg'
+import PTA from '../../assets/slide/PTA.jpg'
+import Papa from '../../assets/slide/papa.jpg'
+import Mapp from '../../assets/slide/mma.jpg'
+import ITDB from '../../assets/slide/itdb.jpg'
+import WFK from '../../assets/slide/wfk.jpg'
 
 const Container = styled.div`
   ${media.tablet`
@@ -327,9 +331,10 @@ class Carousel extends React.Component {
         const captions = {
             undefined: 'jQuery, PHP',
             0: 'jQuery, PHP',
-            1: 'hi i am 1',
-            2: 'hi i am 2',
-            3: 'hi i am 3',
+            1: 'Knockout.js, jQuery',
+            2: 'React, SASS, GraphQL',
+            3: 'Flask, jQuery, BootStrap',
+            4: 'jQuery, BootStrap',
         }
 
         return (
@@ -342,13 +347,16 @@ class Carousel extends React.Component {
                         <img  src={PTA} />
                     </div>
                     <div>
-                        <img src={PTA} />
+                        <img  src={Mapp} />
                     </div>
                     <div>
-                        <img src={PTA} />
+                        <img src={Papa} />
                     </div>
                     <div>
-                        <img src={PTA} />
+                        <img src={ITDB} />
+                    </div>
+                    <div>
+                        <img src={WFK} />
                     </div>
                 </Slider>
             </Container>

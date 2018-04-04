@@ -10,12 +10,12 @@ position: absolute;
   
   
   
-background: linear-gradient(33deg, #45ffd0, #227a63);
-background-size: 400% 400%;
+background: linear-gradient(33deg, #115e54, #8a1024, #4424ff, #621d80, #157de8);
+background-size: 1000% 1000%;
 
--webkit-animation: AnimationName 23s ease infinite;
--moz-animation: AnimationName 23s ease infinite;
-animation: AnimationName 23s ease infinite;
+-webkit-animation: AnimationName 43s ease infinite;
+-moz-animation: AnimationName 43s ease infinite;
+animation: AnimationName 43s ease infinite;
 
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 77%}

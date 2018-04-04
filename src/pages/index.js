@@ -67,6 +67,12 @@ const Footer = styled.div`
     img {
     height: 35px;
     margin: 15px 35px;
+    transition: all 0.2s ease-in-out;
+    
+    :hover {
+      filter: drop-shadow(0 0 20px #fff);
+      transition: all 0.2s ease-in-out;
+
     }
 `;
 
@@ -95,9 +101,15 @@ class IndexPage extends React.Component {
                         <Carousel/>
                     </ProjectsContainer>
                     <Footer>
-                        <img src={Email}/>
-                        <img src={Github}/>
-                        <img src={Twitter}/>
+                        <a href="mailto:hello@tjbowen.me" rel="noopener noreferrer">
+                            <img src={Email}/>
+                        </a>
+                        <a href="https://www.github.com/tbow5257" target="_blank" rel="noopener noreferrer">
+                            <img src={Github}/>
+                        </a>
+                        <a href="https://twitter.com/tbow5257" target="_blank" rel="noopener noreferrer">
+                            <img src={Twitter}/>
+                        </a>
                     </Footer>
                 </Container>
             </div>
