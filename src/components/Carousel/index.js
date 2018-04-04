@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import styled from 'styled-components'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+
 import { media } from '../../layouts'
 
 
@@ -22,12 +23,16 @@ const Container = styled.div`
   .slick-prev { left: -61px}
   `}
 
+opacity: ${ (props) => props.mounted ? `1 !important;` : `0 !important;`  }
 padding: 0 40px;
 width: 80%;
 position: relative;
 z-index: 999;
 justify-items: center;
 align-items: center;
+
+  transition: opacity 1s;
+
 
 img {
 object-fit: cover;
@@ -275,7 +280,8 @@ class Carousel extends React.Component {
         super(props);
         this.state = {
             caption: 0,
-            typeAnimation: false
+            typeAnimation: false,
+            mounted: false
         };
         this.toggleAnimation = this.toggleAnimation.bind(this);
     };
@@ -301,6 +307,9 @@ class Carousel extends React.Component {
         slickNext();
     };
 
+    componentDidMount() {
+        this.setState({ mounted: true })
+    }
 
     render(props, state) {
         var settings = {
@@ -308,7 +317,6 @@ class Carousel extends React.Component {
             beforeChange: (oldIndex, newIndex) => {
                 this.setState({Caption: newIndex});
                     this.toggleAnimation();
-                console.log('sherbert');
             },
             afterChange: (index) => {this.setState({typeAnimation: true});
                 this.toggleAnimation();},
@@ -324,9 +332,8 @@ class Carousel extends React.Component {
             3: 'hi i am 3',
         }
 
-        console.log(this.state.typeAnimation);
         return (
-            <Container>
+            <Container mounted={this.state.mounted}>
                 <Typewriter typeAnimation={this.state.typeAnimation} ref={instance => { this.child = instance;}}>
                     {captions[this.state.Caption]}
                 </Typewriter>
@@ -335,13 +342,13 @@ class Carousel extends React.Component {
                         <img  src={PTA} />
                     </div>
                     <div>
-                        <img src="http://placekitten.com/g/400/200" />
+                        <img src={PTA} />
                     </div>
                     <div>
-                        <img src="http://placekitten.com/g/400/200" />
+                        <img src={PTA} />
                     </div>
                     <div>
-                        <img src="http://placekitten.com/g/400/200" />
+                        <img src={PTA} />
                     </div>
                 </Slider>
             </Container>

@@ -70,28 +70,41 @@ const Footer = styled.div`
     }
 `;
 
-const IndexPage = () => (
-    <div>
-        <Gradient/>
-        <Container>
-            <Header>
-                <div>
-                    <img src={Icon}/>
-                </div>
-                <div>
-                    <p>Thomas Bowen Dev</p>
-                </div>
-            </Header>
-            <ProjectsContainer>
-                <Carousel/>
-            </ProjectsContainer>
-            <Footer>
-                <img src={Email}/>
-                <img src={Github}/>
-                <img src={Twitter}/>
-            </Footer>
-        </Container>
-    </div>
-)
+class IndexPage extends React.Component {
+    constructor () {
+        super()
+        this.state = {
+            isHidden: true
+        }
+    }
+
+    render () {
+        return (
+            <div>
+                <Gradient/>
+                <Container>
+                    <Header>
+                        <div>
+                            <img src={Icon}/>
+                        </div>
+                        <div>
+                            <p>Thomas Bowen Dev</p>
+                        </div>
+                    </Header>
+                    <ProjectsContainer>
+                        <Carousel/>
+                    </ProjectsContainer>
+                    <Footer>
+                        <img src={Email}/>
+                        <img src={Github}/>
+                        <img src={Twitter}/>
+                    </Footer>
+                </Container>
+            </div>
+
+        )
+    }
+}
+
 
 export default IndexPage
