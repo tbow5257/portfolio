@@ -30,7 +30,7 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="Thomas Bowen Dev"
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
