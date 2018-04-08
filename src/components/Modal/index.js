@@ -34,7 +34,7 @@ display: flex;
 class Modal extends React.Component {
     render () {
         return (
-            <TransparentBackdrop>
+            <TransparentBackdrop onClick={this.props.action}>
                 <Container>
                         <h1>I'm a title</h1>
                     <Body>

@@ -79,18 +79,29 @@ class IndexPage extends React.Component {
     constructor () {
         super()
         this.state = {
-            isHidden: true
+            isHidden: true,
+            showModal: false
         }
+        this.toggleShowModal = this.toggleShowModal.bind(this)
     }
+
+    toggleShowModal () {
+        console.log('i clicked');
+        this.setState( prevState => ({
+            showModal: !prevState.showModal
+        }))
+        console.log(this.state.showModal + 'afterclick')
+    }
+
 
     render () {
         return (
             <div>
                 <Gradient/>
-                <Modal/>
+                {this.state.showModal && <Modal action={this.toggleShowModal} />}
                 <Container>
                     <Header>
-                        <div>
+                        <div onClick={() => this.toggleShowModal()}>
                             <img src={Icon}/>
                         </div>
                         <div>
