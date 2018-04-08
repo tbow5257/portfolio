@@ -5,12 +5,9 @@ import styled from 'styled-components'
 import Gradient from '../components/Gradient'
 import Carousel from '../components/Carousel'
 import Modal from '../components/Modal'
+import Social from '../components/Social'
 
 import Icon from '../assets/noun.png'
-import Email from '../assets/social/email.png'
-import Github from '../assets/social/github.png'
-import Twitter from '../assets/social/twitter.png'
-import Placeholder from '../assets/placeholder.jpg'
 
 
 
@@ -32,10 +29,25 @@ justify-content: center;
 align-items: center;
 flex-flow: column;
 padding-top: 1em;
-    
+
+div {
+padding: 15px;
+transition: all 0.2s ease-in-out;
+
+    :hover {
+          filter: drop-shadow(0 0 20px #fff);
+          cursor: pointer;
+          transform: scale(1.15);
+          transition: all 0.2s ease-in-out;
+          }
+}
+
+
+
     img {
       max-width: 35px;
       margin-bottom: .45em;
+      
     }
     
     p {
@@ -49,6 +61,7 @@ display: flex;
 flex-flow: column;
 justify-content: center;
 align-items: center;
+
 
 h1 {
 font-size: 3.5em;
@@ -71,7 +84,7 @@ const Footer = styled.div`
     :hover {
       filter: drop-shadow(0 0 20px #fff);
       transition: all 0.2s ease-in-out;
-
+      }
     }
 `;
 
@@ -86,11 +99,9 @@ class IndexPage extends React.Component {
     }
 
     toggleShowModal () {
-        console.log('i clicked');
         this.setState( prevState => ({
             showModal: !prevState.showModal
         }))
-        console.log(this.state.showModal + 'afterclick')
     }
 
 
@@ -103,25 +114,13 @@ class IndexPage extends React.Component {
                     <Header>
                         <div onClick={() => this.toggleShowModal()}>
                             <img src={Icon}/>
-                        </div>
-                        <div>
                             <p>Thomas Bowen Dev</p>
                         </div>
                     </Header>
                     <ProjectsContainer>
                         <Carousel/>
                     </ProjectsContainer>
-                    <Footer>
-                        <a href="mailto:hello@tjbowen.me" rel="noopener noreferrer">
-                            <img src={Email}/>
-                        </a>
-                        <a href="https://www.github.com/tbow5257" target="_blank" rel="noopener noreferrer">
-                            <img src={Github}/>
-                        </a>
-                        <a href="https://twitter.com/tbow5257" target="_blank" rel="noopener noreferrer">
-                            <img src={Twitter}/>
-                        </a>
-                    </Footer>
+                    <Social/>
                 </Container>
             </div>
 
