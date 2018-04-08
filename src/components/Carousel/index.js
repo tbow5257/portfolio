@@ -31,7 +31,7 @@ opacity: ${ (props) => props.mounted ? `1 !important;` : `0 !important;`  }
 padding: 0 40px;
 width: 80%;
 position: relative;
-z-index: 999;
+z-index: 333;
 justify-items: center;
 align-items: center;
 

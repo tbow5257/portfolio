@@ -4,8 +4,7 @@ import styled from 'styled-components'
 
 import Gradient from '../components/Gradient'
 import Carousel from '../components/Carousel'
-import { media } from '../layouts'
-
+import Modal from '../components/Modal'
 
 import Icon from '../assets/noun.png'
 import Email from '../assets/social/email.png'
@@ -88,6 +87,7 @@ class IndexPage extends React.Component {
         return (
             <div>
                 <Gradient/>
+                <Modal/>
                 <Container>
                     <Header>
                         <div>
